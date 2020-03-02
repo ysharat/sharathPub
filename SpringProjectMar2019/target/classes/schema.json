@@ -1,0 +1,437 @@
+{
+	"totalResults": 7,
+	"itemsPerPage": 7,
+	"startIndex": 1,
+	"schemas": ["urn:scim:schemas:core:1.0",
+	"urn:scim:schemas:lclsdm:1.0"],
+	"Resources": [{
+		"name": "User",
+		"description": "SCIM core resource for representing users",
+		"schema": "urn:scim:schemas:core:1.0",
+		"endpoint": "Users",
+		"attributes": [
+		{
+			"name": "name",
+			"type": "string",
+			"multiValued": false,
+			"description": "Unique identifier for the User or group",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": true,
+			"caseExact": false
+		},
+		{
+			"name": "id",
+			"type": "string",
+			"multiValued": false,
+			"description": "Unique identifier for the SCIM Resource as defined by the Service Provider",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "userid",
+			"type": "string",
+			"multiValued": false,
+			"description": "Unique Identifier of contact",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "status",
+			"type": "string",
+			"multiValued": false,
+			"description": "Status of contact",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": true,
+			"caseExact": false
+		},
+		{
+			"name": "contactType",
+			"type": "string",
+			"multiValued": false,
+			"description": "Type of contact",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "contactID",
+			"type": "string",
+			"multiValued": false,
+			"description": "Unique Identifier",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "serviceType",
+			"type": "string",
+			"multiValued": false,
+			"description": "Predefined Service Types and dynamically enumerated",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "timeZone",
+			"type": "string",
+			"multiValued": false,
+			"description": "Predefined Time Zones and dynamically enumerated",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "workSchedule",
+			"type": "string",
+			"multiValued": false,
+			"description": "Users Work Schedule",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "available",
+			"type": "boolean",
+			"multiValued": false,
+			"description": "Boolean value for availablity of contact",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "confirmSelfServiceSave",
+			"type": "boolean",
+			"multiValued": false,
+			"description": "Indicates whether contact receives confirmation when saving a record",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "alias",
+			"type": "string",
+			"multiValued": false,
+			"description": "Alias assigned to contact record",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "telephone",
+			"type": "string",
+			"multiValued": false,
+			"description": "Telephone Number",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "fax",
+			"type": "string",
+			"multiValued": false,
+			"description": "Fax Number",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "pager",
+			"type": "string",
+			"multiValued": false,
+			"description": "Pager Number",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "alternatePhone",
+			"type": "string",
+			"multiValued": false,
+			"description": "Alternate Phone Number",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "email",
+			"type": "string",
+			"multiValued": false,
+			"description": "The user's email address",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "pagerEmail",
+			"type": "string",
+			"multiValued": false,
+			"description": "Pager Email Address",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "notificationForLowUrgencylevel",
+			"type": "string",
+			"multiValued": false,
+			"description": "Compound value of Notification Method and Shifts",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "notificationForNormalUrgencylevel",
+			"type": "string",
+			"multiValued": false,
+			"description": "Compound value of Notification Method and Shifts",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "notificationForHighUrgencylevel",
+			"type": "string",
+			"multiValued": false,
+			"description": "Compound value of Notification Method and Shifts",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "notificationForEmergencyUrgencylevel",
+			"type": "string",
+			"multiValued": false,
+			"description": "Compound value of Notification Method and Shifts",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "address",
+			"type": "string",
+			"multiValued": false,
+			"description": "Street Address",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "city",
+			"type": "string",
+			"multiValued": false,
+			"description": "City",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "province",
+			"type": "string",
+			"multiValued": false,
+			"description": "Province",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "postalCode",
+			"type": "string",
+			"multiValued": false,
+			"description": "Postal Code",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "country",
+			"type": "string",
+			"multiValued": false,
+			"description": "Country",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "location",
+			"type": "string",
+			"multiValued": false,
+			"description": "Street address;City;State;Zip;Country",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "organizationalInformation",
+			"type": "string",
+			"multiValued": false,
+			"description": "Functional Organization",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "firstname",
+			"type": "string",
+			"multiValued": false,
+			"description": "First Name",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": true,
+			"caseExact": false
+		},
+		{
+			"name": "middlename",
+			"type": "string",
+			"multiValued": false,
+			"description": "Middle Name",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "lastname",
+			"type": "string",
+			"multiValued": false,
+			"description": "Last Name",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": true,
+			"caseExact": false
+		},
+		{
+		   "name":"manager",
+		   "type":"string",
+		   "multiValued":false,
+		   "description":"The ID of user's manager",
+		   "schema":"urn:scim:schemas:lclsdm:1.0",
+		   "readOnly":false,
+		   "required":false,
+		   "caseExact":false
+		},
+		{
+			"name": "jobTitle",
+			"type": "string",
+			"multiValued": false,
+			"description": "Job Title is dynamic enumeration",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "groups",
+			"type": "string",
+			"multiValued": true,
+			"multiValuedAttributeChildName": "group",
+			"description": "A list of groups that the user belongs to",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false,
+			"subAttributes": [{
+				"name": "value",
+				"type": "string",
+				"multiValued": false,
+				"description": "The ID of the groups",
+				"readOnly": false,
+				"required": true,
+				"caseExact": false
+			},
+			{
+				"name": "operation",
+				"type": "string",
+				"multiValued": false,
+				"description": "The operation to perform on the multi-valued attribute during a PATCH request",
+				"readOnly": false,
+				"required": false,
+				"caseExact": false
+			}]
+		},
+		{
+			"name": "roles",
+			"type": "string",
+			"multiValued": true,
+			"description": "List of roles",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		},
+		{
+			"name": "members",
+			"type": "string",
+			"multiValued": true,
+			"multiValuedAttributeChildName": "user",
+			"description": "A list of members of the Group",
+			"schema": "urn:scim:schemas:core:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false,
+			"subAttributes": [{
+				"name": "value",
+				"type": "string",
+				"multiValued": false,
+				"description": "The attribute's significant value",
+				"readOnly": false,
+				"required": true,
+				"caseExact": false
+			},
+			{
+				"name": "operation",
+				"type": "string",
+				"multiValued": false,
+				"description": "The operation to perform on the multi-valued attribute during a PATCH request",
+				"readOnly": false,
+				"required": false,
+				"caseExact": false
+			}]
+		},
+		{
+			"name": "accessType",
+			"type": "string",
+			"multiValued": false,
+			"description": "Contact Access Type",
+			"schema": "urn:scim:schemas:lclsdm:1.0",
+			"readOnly": false,
+			"required": false,
+			"caseExact": false
+		}],
+		"id": "urn:scim:schemas:core:1.0:User",
+		"meta": {
+			"location": "http://li-ji0208r2x64b:8080/v1/Schemas/urn:scim:schemas:core:1.0:User"
+		}
+	}
+	]
+}

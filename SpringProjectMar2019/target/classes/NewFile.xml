@@ -1,0 +1,46 @@
+
+request.mainpart = {String} "<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bsvc="urn:com.workday/bsvc">
+	<soapenv:Header>
+		<NS2:KD4SoapHeaderV2
+			xmlns:NS2="http://www.ibm.com/KD4Soap">AFIAAgAkNzUyMGNmMjMtOWM5YS0xODMzLWY5YTctYjViM2FjZTQ2MzM3ACQ2MmIxNTIwMS1kMzQ2LTExNzQtNGJiNC1mYWVlZTJmMjMwOGUAAg==
+		</NS2:KD4SoapHeaderV2>
+		<NS3:Security
+			xmlns:NS3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<NS3:UsernameToken>
+				<NS4:ID
+					xmlns:NS4="http://schemas.xmlsoap.org/ws/2002/07/utility">SecurityToken-0c708387-2e7d-45b5-9029-b1108cf5527e
+				</NS4:ID>
+				<NS3:Username />
+				<NS3:Password />
+			</NS3:UsernameToken>
+		</NS3:Security>
+	</soapenv:Header>
+	<soapenv:Body>
+		<bsvc:Workday_Account_for_Worker_Update
+			bsvc:version="">
+			<bsvc:Workday_Account_for_Worker_Data>
+				<bsvc:User_Name />
+				<bsvc:Password />
+				<bsvc:Account_Disabled />
+				<bsvc:Delegated_Authentication_Integration_System_Reference
+					bsvc:Descriptor="?">
+					<bsvc:ID bsvc:type="Integration_System_ID">SDM Delegated Authentication</bsvc:ID>
+				</bsvc:Delegated_Authentication_Integration_System_Reference>
+				<bsvc:Exempt_from_Delegated_Authentication>false
+				</bsvc:Exempt_from_Delegated_Authentication>
+			</bsvc:Workday_Account_for_Worker_Data>
+		</bsvc:Workday_Account_for_Worker_Update>
+	</soapenv:Body>
+</soapenv:Envelope>
+
+
+request.http.uri = {String} "/corporate/ecommerce/v1/actiononclarity/ServiceProviderConfigs"
+
+
+mainpart = {String} "{"active":true,"displayName":"Dana Scully","name":{"familyName":"Scully","formatted":"Dana Scully","givenName":"Dana"},"password":"Ds@39Id2","schemas":["urn:scim:schemas:core:1.0"],"title":"Consultancy","userName":"3324b5bc-268d-4bb8-a89b-b5663ddc5a8a"}"
+"

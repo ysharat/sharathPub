@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="MembersV1ProxyEndpoint">
+    <Description>Proxy endpoint for members v1 routes.</Description>
+    <FaultRules>
+        <FaultRule name="GeneralSecurityFaultHandler">
+            <Condition>flow.api.error.code = null</Condition>
+            <Step>
+                <FaultRules/>
+                <Name>FC-PCO-PreResponseHandler</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-GeneralApiSecurityFaultHandler</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <Flows>
+        <Flow name="OptionsPreFlightFlow">
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-CorsPreflightRequestHandler</Name>
+                </Step>
+            </Response>
+            <Condition>(request.verb = "OPTIONS") AND (request.header.origin != null) AND (request.header.Access-Control-Request-Method != null)</Condition>
+        </Flow>
+        <Flow name="MembersFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-VerifyPcoIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix Matches "") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersDetailFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-VerifyPcoIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersEmailFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/email$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersHomeStoresFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-VerifyPcoIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/home-stores$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersIdentitiesFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/identities$") and (request.verb = "GET" or request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="MembersIdentitiesDetailFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/identities/[0-9]+$") and (request.verb = "GET" or request.verb = "PATCH")</Condition>
+        </Flow>
+        <Flow name="MembersInvitationsFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/invitations$") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="MembersInvitationsDetailFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/invitations/[0-9]+$") and (request.verb = "GET" or request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="MembersLegacyAccountsFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/legacy-accounts$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersOffersFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-VerifyPcoIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/offers$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersOffersDetailFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-VerifyPcoIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/offers\/[0-9]+$") and (request.verb = "DELETE" or request.verb = "PATCH")</Condition>
+        </Flow>
+        <Flow name="MembersPointsFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-VerifyPcoIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/points$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersPointEventsFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/point-events$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersPointEventsDetailFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/point-events\/[0-9]+$") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="MembersProfileFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/profile$") and (request.verb = "GET" or request.verb = "PATCH")</Condition>
+        </Flow>
+        <Flow name="MembersSettingsFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoSecureIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/settings$") and (request.verb = "GET" or request.verb = "PATCH")</Condition>
+        </Flow>
+        <Flow name="MembersSitrepFlow">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>FC-VerifyPcoIdcsAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "\/[0-9]+\/sitrep$") and (request.verb = "GET" or request.verb = "PATCH")</Condition>
+        </Flow>
+        <Flow name="InvalidRequestFlow">
+            <Description>Handles all unmatched routes/request structures.</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-ProxyEndpointInvalidRequestHandler</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <FaultRules/>
+                <Name>FC-PCO-PreResponseHandler</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <FaultRules/>
+                <Name>KVM-GetPcoConfiguration</Name>
+            </Step>
+            <Step>
+                <Condition>request.header.origin != null</Condition>
+                <FaultRules/>
+                <Name>FC-AllowedOriginHandler</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-GeneralApiSecurityHandler</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/loyalty/v1/members</BasePath>
+        <Properties/>
+        <VirtualHost>secure-pco-api</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="NoRoute">
+        <Condition>(request.verb == "OPTIONS") AND (request.header.origin != null) AND (request.header.Access-Control-Request-Method != null)</Condition>
+    </RouteRule>
+    <RouteRule name="PCOMiddlewareRouteRule">
+        <TargetEndpoint>PCOMiddlewareTarget</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>
